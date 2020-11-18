@@ -6,6 +6,147 @@
 {% endblock head %}
 
 {% block content %}
+<!-- begin #header -->
+    <div id="header" class="header navbar-default">
+        <!-- begin navbar-header -->
+        <div class="navbar-header">
+            <a href="home.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Gambling Shrink</b></a>
+            <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- end navbar-header -->
+        <!-- begin header-nav -->
+        <ul class="navbar-nav navbar-right">
+
+            <li class="dropdown navbar-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="{% static 'img/user/user-13.jpg' %}" alt="" />
+                    <span class="d-none d-md-inline">Fadi A</span> <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="javascript:;" class="dropdown-item">Edit Profile</a>
+                    <a href="javascript:;" class="dropdown-item">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="javascript:;" class="dropdown-item">Log Out</a>
+                </div>
+            </li>
+        </ul>
+        <!-- end header navigation right -->
+    </div>
+    <!-- end #header -->
+
+
+    <!-- begin #sidebar -->
+    <div id="sidebar" class="sidebar">
+        <!-- begin sidebar scrollbar -->
+        <div data-scrollbar="true" data-height="100%">
+            <!-- begin sidebar nav -->
+            <ul class="nav">
+                <li class="nav-header">Navigation</li>
+                <li>
+                    <a href="{% url 'home' %}">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li class="has-sub">
+                    <a href="#randomness">
+                        <b class="caret"></b>
+                        <i class="fa fa-random"></i>
+                        <span>Randomness</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="independent_events.html">Independent Events</a></li>
+                        <li><a href="rng_coin_toss.html">Symbol Matching - Coin Toss</a></li>
+                        <li><a href="rng_prize_matching.html">PrizeMatching - Galton Board</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-sub">
+                    <a href="#virtual_Reel">
+                        <b class="caret"></b>
+                        <i class="fa fa-puzzle-piece"></i>
+                        <span>Virtual Reels</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="vr_serial_random.html">Serial-vs-Random - Number Generation</a></li>
+                        <li><a href="vr_symbol_matching.html">RNG - Symbol Matching - Slots</a></li>
+                        <li><a href="vr_adjusting_symbol_distribution.html">Adjusting Symbol Distribution</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-sub">
+                    <a href="#Overal_game_play_off">
+                        <b class="caret"></b>
+                        <i class="fa fa-money-bill"></i>
+                        <span>Overall GamePayOff</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="gpo_2_outcome.html">Coin Toss - 2 Outcome Game</a></li>
+                        <li><a href="gpo_7_outcome.html">Galton Board - 7 Outcome Game</a></li>
+                        <li><a href="gpo_11_outcome.html">11 Outcome Game</a></li>
+                    </ul>
+                </li>
+                <li class="has-sub active">
+                    <a href="javascript:;">
+                        <b class="caret"></b>
+                        <i class="fa fa-gamepad"></i>
+                        <span>Simulate Play GamePayOff</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="{% url 'repeat_play2_outcome' %}">Repeat Play 2 Outcome Game</a></li>
+                        <li><a href="repeat_play_7_outcome.html">Repeat Play 7 Outcome Game</a></li>
+                        <li><a href="repeat_play_11_outcome.html">Repeat Play 11 Outcome Game</a></li>
+                    </ul>
+                </li>
+                <li class="has-sub">
+                    <a href="javascript:;">
+                        <b class="caret"></b>
+                        <i class="fa fa-play"></i>
+                        <span>Simulate Virtual Sessions</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="vs_12_1hr_session.html">12 1hr-Sessions</a></li>
+                        <li><a href="vs_50_1hr_session_positive.html">50 1hr-Sessions Negative vs Positive Game</a>
+                        </li>
+                        <li><a href="vs_50_1hr_session_fair.html">50 1hr-Sessions Negative vs Fair Game</a></li>
+                        <li><a href="vs_50_2hr_session_positive.html">50 1hr-Sessions Negative vs Positive Game</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="loss_calculator.html">
+                        <i class="fa fa-calculator"></i>
+                        <span>Loss Calculator</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="wagering.html">
+                        <i class="fa fa-trophy"></i>
+                        <span>Wagering</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fa fa-wrench"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <!-- begin sidebar minify button -->
+                <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i
+                            class="fa fa-angle-double-left"></i></a></li>
+                <!-- end sidebar minify button -->
+            </ul>
+            <!-- end sidebar nav -->
+        </div>
+        <!-- end sidebar scrollbar -->
+    </div>
+    <div class="sidebar-bg"></div>
+    <!-- end #sidebar -->
 <!-- begin #content -->
 <div id="content" class="content">
     <!-- begin breadcrumb -->
