@@ -1,0 +1,836 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Color Admin | Widgets Page</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="{% static 'css/transparent/app.min.css' %}" rel="stylesheet" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+
+    <!-- ================== BEGIN PAGE CSS ================== -->
+
+    <link href="{% static 'plugins/ion-rangeslider/css/ion.rangeSlider.min.css' %}" rel="stylesheet" />
+    <!-- ================== END PAGE CSS ================== -->
+</head>
+
+<body>
+
+    <!-- begin page-cover -->
+    <div class="page-cover"></div>
+    <!-- end page-cover -->
+
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade show">
+        <span class="spinner"></span>
+    </div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed page-with-wide-sidebar">
+        <!-- begin #header -->
+        <div id="header" class="header navbar-default">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <a href="home.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Gambling Shrink</b></a>
+                <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin header-nav -->
+            <ul class="navbar-nav navbar-right">
+
+                <li class="dropdown navbar-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{% static 'img/user/user-13.jpg' %}" alt="" />
+                        <span class="d-none d-md-inline">Fadi A</span> <b class="caret"></b>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="profile.html" class="dropdown-item">Edit Profile</a>
+                        <a href="settings.html" class="dropdown-item">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="login.html" class="dropdown-item">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- end header navigation right -->
+        </div>
+        <!-- end #header -->
+
+        <!-- begin #sidebar -->
+        <div id="sidebar" class="sidebar">
+            <!-- begin sidebar scrollbar -->
+            <div data-scrollbar="true" data-height="100%">
+                <!-- begin sidebar nav -->
+                <ul class="nav">
+                    <li class="nav-header">Navigation</li>
+                    <li>
+                        <a href="home.html">
+                            <i class="fa fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="has-sub">
+                        <a href="#randomness">
+                            <b class="caret"></b>
+                            <i class="fa fa-random"></i>
+                            <span>Randomness</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="independent_events.html">Independent Events</a></li>
+                            <li><a href="rng_coin_toss.html">Symbol Matching - Coin Toss</a></li>
+                            <li><a href="rng_prize_matching.html">PrizeMatching - Galton Board</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-sub">
+                        <a href="#virtual_Reel">
+                            <b class="caret"></b>
+                            <i class="fa fa-puzzle-piece"></i>
+                            <span>Virtual Reels</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="vr_serial_random.html">Serial-vs-Random - Number Generation</a></li>
+                            <li><a href="vr_symbol_matching.html">RNG - Symbol Matching - Slots</a></li>
+                            <li><a href="vr_adjusting_symbol_distribution.html">Adjusting Symbol Distribution</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-sub">
+                        <a href="#Overal_game_play_off">
+                            <b class="caret"></b>
+                            <i class="fa fa-money-bill"></i>
+                            <span>Overall GamePayOff</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="gpo_2_outcome.html">Coin Toss - 2 Outcome Game</a></li>
+                            <li><a href="gpo_7_outcome.html">Galton Board - 7 Outcome Game</a></li>
+                            <li><a href="gpo_11_outcome.html">11 Outcome Game</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub active">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fa fa-gamepad"></i>
+                            <span>Simulate Play GamePayOff</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="active"><a href="repeat_play_2_outcome.html">Repeat Play 2 Outcome Game</a></li>
+                            <li><a href="repeat_play_7_outcome.html">Repeat Play 7 Outcome Game</a></li>
+                            <li><a href="repeat_play_11_outcome.html">Repeat Play 11 Outcome Game</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fa fa-play"></i>
+                            <span>Simulate Virtual Sessions</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="vs_12_1hr_session.html">12 1hr-Sessions</a></li>
+                            <li><a href="vs_50_1hr_session_positive.html">50 1hr-Sessions Negative vs Positive Game</a>
+                            </li>
+                            <li><a href="vs_50_1hr_session_fair.html">50 1hr-Sessions Negative vs Fair Game</a></li>
+                            <li><a href="vs_50_2hr_session_positive.html">50 1hr-Sessions Negative vs Positive Game</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="loss_calculator.html">
+                            <i class="fa fa-calculator"></i>
+                            <span>Loss Calculator</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wagering.html">
+                            <i class="fa fa-trophy"></i>
+                            <span>Wagering</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <i class="fa fa-wrench"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <!-- begin sidebar minify button -->
+                    <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i
+                                class="fa fa-angle-double-left"></i></a></li>
+                    <!-- end sidebar minify button -->
+                </ul>
+                <!-- end sidebar nav -->
+            </div>
+            <!-- end sidebar scrollbar -->
+        </div>
+        <div class="sidebar-bg"></div>
+        <!-- end #sidebar -->
+        <!-- begin #content -->
+        <div id="content" class="content">
+            <!-- begin breadcrumb -->
+            <ol class="breadcrumb float-xl-right">
+                <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript:;">Simulate Play Game Pay off</a></li>
+                <li class="breadcrumb-item active">2 Outcome Game</li>
+            </ol>
+            <!-- end breadcrumb -->
+            <!-- begin page-header -->
+            <h1 class="page-header m-b-10">Gambling Shrink | <small> Repeat Play 2 Outcome Game</small>
+            </h1>
+            <!-- end page-header -->
+
+            <div class="row">
+                <div class="col-xl-7 offset-xl-2">
+                    <table class="table">
+                        <thead>
+                            <th> </th>
+                            <th># Tails </th>
+                            <th># Heads </th>
+                            <th>% Heads </th>
+                            <th> RTP </th>
+                        </thead>
+                        <tr>
+                            <th>10 Flips</th>
+                            <td> <span id="10_flip_tails_count">6</span></td>
+                            <td> <span id="10_flip_heads_count">4</span></td>
+                            <td> <span id="10_flip_heads_percent">40%</span></td>
+                            <td> <span id="10_flip_rtp">600.00%</span></td>
+                        </tr>
+                        <tr>
+                            <th>1000 Flips</th>
+                            <td> <span id="1000_flip_tails_count">490</span></td>
+                            <td> <span id="1000_flip_heads_count">510</span></td>
+                            <td> <span id="1000_flip_heads_percent">51%</span></td>
+                            <td> <span id="1000_flip_rtp">936.73%</span></td>
+                        </tr>
+                        <tr>
+                            <th>10,000 Flips</th>
+                            <td> <span id="10000_flip_tails_count">4969</span></td>
+                            <td> <span id="10000_flip_heads_count">5031</span></td>
+                            <td> <span id="10000_flip_heads_percent">50.31%</span></td>
+                            <td> <span id="10000_flip_rtp">911.23%</span></td>
+                        </tr>
+                    </table>
+                    <form class="form-horizontal form-bordered">
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">Base Prize Amount</label>
+                            <div class="col-lg-8">
+                                <input type="number" id="prize_selector" name="prize_selector" value="1.2" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">Best Amount</label>
+                            <div class="col-lg-8">
+                                <input class="form-control bg-danger" type="number" id="bet_amount" step="1" min="1"
+                                    name="bet_amount" value="1" />
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-block btn-primary" type="button" id="simulate_caluclations"> Press
+                                Button to Simulate</button>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="row">
+                        <h3>10 Flips</h3>
+                        <table class="table">
+                            <thead>
+                                <th></th>
+                                <th>Actual <br> Frequency</th>
+                                <th colspan="4"></th>
+                                <th> Overal <br> Actual Payoff</th>
+                                <th></th>
+                            </thead>
+                            <tr>
+                                <td> <span>Heads</span></td>
+                                <td> <span id="10_flips_results_heads_frequency">4</span> </td>
+                                <td> X </td>
+                                <td> <span id="10_flips_results_heads_payout"></span> </td>
+                                <td> = </td>
+                                <td> <span id="10_flips_results_heads_prize"></span></td>
+                                <td></td>
+                                <td rowspan="2">
+                                    <div class="drawing">
+                                        <canvas id="pie_10"></canvas>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Tails</td>
+                                <td> <span id="10_flips_results_tails_frequency"></span> </td>
+                                <td> X </td>
+                                <td> <span id="10_flips_results_tails_payout"></span> </td>
+                                <td> = </td>
+                                <td> <span id="10_flips_results_tails_prize"></span></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <h3>1000 Flips</h3>
+                        <table class="table">
+                            <thead>
+                                <th></th>
+                                <th>Actual <br> Frequency</th>
+                                <th colspan="4"></th>
+                                <th> Overal <br> Actual Payoff</th>
+                                <th></th>
+                            </thead>
+                            <tr>
+                                <td> <span>Heads</span></td>
+                                <td> <span id="1000_flips_results_heads_frequency">4</span> </td>
+                                <td> X </td>
+                                <td> <span id="1000_flips_results_heads_payout"></span> </td>
+                                <td> = </td>
+                                <td> <span id="1000_flips_results_heads_prize"></span></td>
+                                <td></td>
+                                <td rowspan="2">
+                                    <div class="drawing">
+                                        <canvas id="pie_1000"></canvas>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Tails</td>
+                                <td> <span id="1000_flips_results_tails_frequency"></span> </td>
+                                <td> X </td>
+                                <td> <span id="1000_flips_results_tails_payout"></span> </td>
+                                <td> = </td>
+                                <td> <span id="1000_flips_results_tails_prize"></span></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <h3>10000 Flips</h3>
+                        <table class="table">
+                            <thead>
+                                <th></th>
+                                <th>Actual <br> Frequency</th>
+                                <th colspan="4"></th>
+                                <th> Overal <br> Actual Payoff</th>
+                                <th></th>
+                            </thead>
+                            <tr>
+                                <td> <span>Heads</span></td>
+                                <td> <span id="10000_flips_results_heads_frequency"></span> </td>
+                                <td> X </td>
+                                <td> <span id="10000_flips_results_heads_payout"></span> </td>
+                                <td> = </td>
+                                <td> <span id="10000_flips_results_heads_prize"></span></td>
+                                <td></td>
+                                <td rowspan="2">
+                                    <div class="drawing">
+                                        <canvas id="pie_10000"></canvas>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Tails</td>
+                                <td> <span id="10000_flips_results_tails_frequency"></span> </td>
+                                <td> X </td>
+                                <td> <span id="10000_flips_results_tails_payout"></span> </td>
+                                <td> = </td>
+                                <td> <span id="10000_flips_results_tails_prize"></span></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <h4>Patterns of winning and losing for increasing plays</h4>
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <td>Repeat 10 Flips</td>
+                        <td>Actual Payoffs</td>
+                        <td>Repeat 1000 Flips</td>
+                        <td>Actual Payoffs</td>
+                        <td>Repeat 10000 Flips</td>
+                        <td>Actual Payoffs</td>
+                    </thead>
+                    <tr>
+                        <td>Round 1</td>
+                        <td id="flip_10_round_1_td"><span id="flip_10_round_1"></span></td>
+                        <td>Round 1</td>
+                        <td id="flip_1000_round_1_td"><span id="flip_1000_round_1"></span></td>
+                        <td>Round 1</td>
+                        <td id="flip_10000_round_1_td"><span id="flip_10000_round_1"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Round 2</td>
+                        <td id="flip_10_round_2_td"><span id="flip_10_round_2"></span></td>
+                        <td>Round 2</td>
+                        <td id="flip_1000_round_2_td"><span id="flip_1000_round_2"></span></td>
+                        <td>Round 2</td>
+                        <td id="flip_10000_round_2_td"><span id="flip_10000_round_2"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Round 3</td>
+                        <td id="flip_10_round_3_td"><span id="flip_10_round_3"></span></td>
+                        <td>Round 3</td>
+                        <td id="flip_1000_round_3_td"><span id="flip_1000_round_3"></span></td>
+                        <td>Round 3</td>
+                        <td id="flip_10000_round_3_td"><span id="flip_10000_round_3"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Round 4</td>
+                        <td id="flip_10_round_4_td"><span id="flip_10_round_4"></span></td>
+                        <td>Round 4</td>
+                        <td id="flip_1000_round_4_td"><span id="flip_1000_round_4"></span></td>
+                        <td>Round 4</td>
+                        <td id="flip_10000_round_4_td"><span id="flip_10000_round_4"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Round 5</td>
+                        <td id="flip_10_round_5_td"><span id="flip_10_round_5"></span></td>
+                        <td>Round 5</td>
+                        <td id="flip_1000_round_5_td"><span id="flip_1000_round_5"></span></td>
+                        <td>Round 5</td>
+                        <td id="flip_10000_round_5_td"><span id="flip_10000_round_5"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Round 6</td>
+                        <td id="flip_10_round_6_td"><span id="flip_10_round_6"></span></td>
+                        <td>Round 6</td>
+                        <td id="flip_1000_round_6_td"><span id="flip_1000_round_6"></span></td>
+                        <td>Round 6</td>
+                        <td id="flip_10000_round_6_td"><span id="flip_10000_round_6"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Round 7</td>
+                        <td id="flip_10_round_7_td"><span id="flip_10_round_7"></span></td>
+                        <td>Round 7</td>
+                        <td id="flip_1000_round_7_td"><span id="flip_1000_round_7"></span></td>
+                        <td>Round 7</td>
+                        <td id="flip_10000_round_7_td"><span id="flip_10000_round_7"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Round 8</td>
+                        <td id="flip_10_round_8_td"><span id="flip_10_round_8"></span></td>
+                        <td>Round 8</td>
+                        <td id="flip_1000_round_8_td"><span id="flip_1000_round_8"></span></td>
+                        <td>Round 8</td>
+                        <td id="flip_10000_round_8_td"><span id="flip_10000_round_8"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Round 9</td>
+                        <td id="flip_10_round_9_td"><span id="flip_10_round_9"></span></td>
+                        <td>Round 9</td>
+                        <td id="flip_1000_round_9_td"><span id="flip_1000_round_9"></span></td>
+                        <td>Round 9</td>
+                        <td id="flip_10000_round_9_td"><span id="flip_10000_round_9"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Round 10</td>
+                        <td id="flip_10_round_10_td"><span id="flip_10_round_10"></span></td>
+                        <td>Round 10</td>
+                        <td id="flip_1000_round_10_td"><span id="flip_1000_round_10"></span></td>
+                        <td>Round 10</td>
+                        <td id="flip_10000_round_10_td"><span id="flip_10000_round_10"></span></td>
+                    </tr>
+                    <tr>
+                        <td> Results of 10 10 Flip Rounds </td>
+                        <td  id="repated_play_10_td">  <span id="repated_play_10"></span></td>
+                        <td> Results of  10 1000 Flip Rounds </td>
+                        <td id="repated_play_1000_td" >  <span id="repated_play_1000"></span></td>
+                        <td> Results of  10 10000 Flip Rounds </td>
+                        <td id="repated_play_10000_td" > <span id="repated_play_10000"></span></td>
+                    </tr>
+                </table>
+            </div>
+            </div>
+
+
+
+
+        </div>
+        <!-- end #content -->
+
+    </div>
+    <!-- end page container -->
+
+    <!-- begin scroll to top btn -->
+    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i
+            class="fa fa-angle-up"></i></a>
+    <!-- end scroll to top btn -->
+
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="{% static 'js/app.min.js' %}"></script>
+    <script src="{% static 'js/theme/transparent.min.js' %}"></script>
+    <!-- ================== END BASE JS ================== -->
+
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+
+    <script src="{% static 'plugins/ion-rangeslider/js/ion.rangeSlider.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+
+    <script src="{% static 'plugins/chart.js/dist/Chart.min.js' %}"> </script>
+
+
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    <script>
+        $('#prize_selector').ionRangeSlider({
+            values: [1.2, 1.9, 2, 2.2, 10],
+            type: 'single',
+            skin: "round",
+            grid: true,
+            prefix: "$"
+        });
+        var SIMULATION_VALUES = new Array(10000);
+
+        var TOSS_STATS = null;
+
+        $(document).ready(function () {
+            trigger_game()
+        });
+
+        $("#simulate_caluclations").on("click", function () {
+            trigger_game()
+        });
+
+        function trigger_game() {
+            //0 is heads and 1 is Tails
+            reset_flip_stats()
+            console.log("Starting the stuff now " + Date.now())
+            fill_coin_toss_array();
+            compile_flip_stats();
+            calculate_rtp();
+            print_primary_table();
+
+            update_results_table();
+            draw_piecharts();
+
+            compile_repeat_simulations()
+            console.log("Finishing Now the stuff now " + Date.now())
+        }
+
+
+        function fill_coin_toss_array() {
+            for (i = 0; i < 10000; i++) {
+                SIMULATION_VALUES[i] = Math.round(Math.random());
+            }
+        }
+
+        function compile_flip_stats() {
+            reset_flip_stats()
+            for (i = 0; i < 10000; i++) {
+                if (i < 10) {
+                    if (SIMULATION_VALUES[i] == 0) {
+                        TOSS_STATS.flip_10.heads_count = TOSS_STATS.flip_10.heads_count + 1;
+                    } else {
+                        TOSS_STATS.flip_10.tails_count = TOSS_STATS.flip_10.tails_count + 1;
+                    }
+                }
+                if (i < 1000) {
+                    if (SIMULATION_VALUES[i] == 0) {
+                        TOSS_STATS.flip_1000.heads_count = TOSS_STATS.flip_1000.heads_count + 1;
+                    } else {
+                        TOSS_STATS.flip_1000.tails_count = TOSS_STATS.flip_1000.tails_count + 1;
+                    }
+                }
+                if (SIMULATION_VALUES[i] == 0) {
+                    TOSS_STATS.flip_10000.heads_count = TOSS_STATS.flip_10000.heads_count + 1;
+                } else {
+                    TOSS_STATS.flip_10000.tails_count = TOSS_STATS.flip_10000.tails_count + 1;
+                }
+                //do the rests 
+            }
+            TOSS_STATS.flip_10.heads_percernt = (TOSS_STATS.flip_10.heads_count / 10) * 100;
+            TOSS_STATS.flip_1000.heads_percernt = (TOSS_STATS.flip_1000.heads_count / 1000) * 100;
+            TOSS_STATS.flip_10000.heads_percernt = (TOSS_STATS.flip_10000.heads_count / 10000) * 100;
+            TOSS_STATS.prize = parseFloat($("#prize_selector").val());
+            TOSS_STATS.bet = parseFloat($("#bet_amount").val());
+        }
+
+        function reset_flip_stats() {
+            TOSS_STATS = {
+                flip_10: {
+                    heads_count: 0,
+                    tails_count: 0,
+                    heads_percernt: 0,
+                    rtp: 0,
+                    win_amount: 0,
+                    loss_amount: 0,
+                    overall_pay: 0
+                },
+                flip_1000: {
+                    heads_count: 0,
+                    tails_count: 0,
+                    heads_percernt: 0,
+                    rtp: 0,
+                    win_amount: 0,
+                    loss_amount: 0,
+                    overall_pay: 0
+                },
+                flip_10000: {
+                    heads_count: 0,
+                    tails_count: 0,
+                    heads_percernt: 0,
+                    rtp: 0,
+                    win_amount: 0,
+                    loss_amount: 0,
+                    overall_pay: 0
+                },
+                prize: 0,
+                bet: 0,
+                pay_off: 0
+            }
+        }
+
+        function calculate_rtp() {
+
+            TOSS_STATS.pay_off = TOSS_STATS.prize - TOSS_STATS.bet;
+
+            TOSS_STATS.flip_10.win_amount = TOSS_STATS.flip_10.heads_count * TOSS_STATS.pay_off;
+            TOSS_STATS.flip_10.loss_amount = (10 - TOSS_STATS.flip_10.heads_count) * TOSS_STATS.bet;
+            TOSS_STATS.flip_10.overall_pay = TOSS_STATS.flip_10.win_amount - TOSS_STATS.flip_10.loss_amount;
+            TOSS_STATS.flip_10.rtp = (TOSS_STATS.flip_10.win_amount / TOSS_STATS.flip_10.loss_amount) * 100;
+
+            TOSS_STATS.flip_1000.win_amount = TOSS_STATS.flip_1000.heads_count * TOSS_STATS.pay_off;
+            TOSS_STATS.flip_1000.loss_amount = (1000 - TOSS_STATS.flip_1000.heads_count) * TOSS_STATS.bet;
+            TOSS_STATS.flip_1000.overall_pay = TOSS_STATS.flip_1000.win_amount - TOSS_STATS.flip_1000.loss_amount;
+            TOSS_STATS.flip_1000.rtp = (TOSS_STATS.flip_1000.win_amount / TOSS_STATS.flip_1000.loss_amount) * 100;
+
+
+            TOSS_STATS.flip_10000.win_amount = TOSS_STATS.flip_10000.heads_count * TOSS_STATS.pay_off;
+            TOSS_STATS.flip_10000.loss_amount = (10000 - TOSS_STATS.flip_10000.heads_count) * TOSS_STATS.bet;
+            TOSS_STATS.flip_10000.overall_pay = TOSS_STATS.flip_10000.win_amount - TOSS_STATS.flip_10000.loss_amount;
+            TOSS_STATS.flip_10000.rtp = (TOSS_STATS.flip_10000.win_amount / TOSS_STATS.flip_10000.loss_amount) * 100;
+
+        }
+
+        function print_primary_table() {
+            $("#10_flip_tails_count").html(TOSS_STATS.flip_10.tails_count);
+            $("#10_flip_heads_count").html(TOSS_STATS.flip_10.heads_count);
+            $("#10_flip_heads_percent").html((TOSS_STATS.flip_10.heads_percernt).toFixed(2) + "%");
+            $("#10_flip_rtp").html((TOSS_STATS.flip_10.rtp).toFixed(2) + "%");
+
+            $("#1000_flip_tails_count").html(TOSS_STATS.flip_1000.tails_count);
+            $("#1000_flip_heads_count").html(TOSS_STATS.flip_1000.heads_count);
+            $("#1000_flip_heads_percent").html((TOSS_STATS.flip_1000.heads_percernt).toFixed(2) + "%");
+            $("#1000_flip_rtp").html((TOSS_STATS.flip_1000.rtp).toFixed(2) + "%");
+
+            $("#10000_flip_tails_count").html(TOSS_STATS.flip_10000.tails_count);
+            $("#10000_flip_heads_count").html(TOSS_STATS.flip_10000.heads_count);
+            $("#10000_flip_heads_percent").html((TOSS_STATS.flip_10000.heads_percernt).toFixed(2) + "%");
+            $("#10000_flip_rtp").html((TOSS_STATS.flip_10000.rtp).toFixed(2) + "%");
+
+        }
+
+        function update_results_table() {
+            $("#10_flips_results_heads_frequency").html(TOSS_STATS.flip_10.heads_count);
+            $("#10_flips_results_heads_payout").html(TOSS_STATS.pay_off.toFixed(2));
+            $("#10_flips_results_heads_prize").html(TOSS_STATS.flip_10.win_amount.toFixed(2));
+
+            $("#10_flips_results_tails_frequency").html(TOSS_STATS.flip_10.tails_count);
+            $("#10_flips_results_tails_payout").html("-" + TOSS_STATS.bet);
+            $("#10_flips_results_tails_prize").html("-" + TOSS_STATS.flip_10.loss_amount.toFixed(2));
+
+            $("#1000_flips_results_heads_frequency").html(TOSS_STATS.flip_1000.heads_count);
+            $("#1000_flips_results_heads_payout").html(TOSS_STATS.pay_off.toFixed(2));
+            $("#1000_flips_results_heads_prize").html(TOSS_STATS.flip_1000.win_amount.toFixed(2));
+
+            $("#1000_flips_results_tails_frequency").html(TOSS_STATS.flip_1000.tails_count);
+            $("#1000_flips_results_tails_payout").html("-" + TOSS_STATS.bet);
+            $("#1000_flips_results_tails_prize").html("-" + TOSS_STATS.flip_1000.loss_amount.toFixed(2));
+
+            $("#10000_flips_results_heads_frequency").html(TOSS_STATS.flip_10000.heads_count);
+            $("#10000_flips_results_heads_payout").html(TOSS_STATS.pay_off.toFixed(2));
+            $("#10000_flips_results_heads_prize").html(TOSS_STATS.flip_10000.win_amount.toFixed(2));
+
+            $("#10000_flips_results_tails_frequency").html(TOSS_STATS.flip_10000.tails_count);
+            $("#10000_flips_results_tails_payout").html("-" + TOSS_STATS.bet);
+            $("#10000_flips_results_tails_prize").html("-" + TOSS_STATS.flip_10000.loss_amount.toFixed(2));
+        }
+
+        function draw_piecharts() {
+            var pie_10 = document.getElementById('pie_10').getContext('2d');
+            var pie_1000 = document.getElementById('pie_1000').getContext('2d');
+            var pie_10000 = document.getElementById('pie_10000').getContext('2d');
+            var colors = {
+                GREEN: "#2ac845",
+                RED: "#ff3b30"
+            };
+
+            var pie_10_data = {
+                labels: ['Heads', 'Tails'],
+                datasets: [{
+                    data: [TOSS_STATS.flip_10.heads_percernt, (100 - TOSS_STATS.flip_10.heads_percernt)],
+                    backgroundColor: [colors.GREEN, colors.RED],
+                    borderColor: [colors.GREEN, colors.RED],
+                    borderWidth: 2,
+                    label: '10 Flips'
+                }]
+            }
+            var pie_1000_data = {
+                labels: ['Heads', 'Tails'],
+                datasets: [{
+                    data: [TOSS_STATS.flip_1000.heads_percernt, (100 - TOSS_STATS.flip_1000.heads_percernt)],
+                    backgroundColor: [colors.GREEN, colors.RED],
+                    borderColor: [colors.GREEN, colors.RED],
+                    borderWidth: 2,
+                    label: '1000 Flips'
+                }]
+            }
+            var pie_10000_data = {
+                labels: ['Heads', 'Tails'],
+                datasets: [{
+                    data: [TOSS_STATS.flip_10000.heads_percernt, (100 - TOSS_STATS.flip_10000.heads_percernt)],
+                    backgroundColor: [colors.GREEN, colors.RED],
+                    borderColor: [colors.GREEN, colors.RED],
+                    borderWidth: 2,
+                    label: '10000 Flips'
+                }]
+            }
+
+            var pie_10_chart = new Chart(pie_10, {
+                type: "pie",
+                data: pie_10_data
+            });
+
+            var pie_1000_data = new Chart(pie_1000, {
+                type: "pie",
+                data: pie_1000_data
+            });
+            var pie_10000_data = new Chart(pie_10000, {
+                type: "pie",
+                data: pie_10000_data
+            });
+        }
+
+        function compile_repeat_simulations() {
+            var repeat_simulations = new Array(10);
+            repeat_simulations[0] = TOSS_STATS;
+
+            for (var i = 1; i < 10; i++) {
+                console.log("Calulating the simulation for round " + i)
+                fill_coin_toss_array();
+                compile_flip_stats();
+                calculate_rtp();
+                repeat_simulations[i] = TOSS_STATS;
+            }
+            print_repeat_simulation_table(repeat_simulations);
+        }
+
+        function print_repeat_simulation_table(repeat_simulations) {
+            var pay_off_summary = {
+                flip_10: 0,
+                flip_1000: 0,
+                flip_10000: 0
+            }
+            for (var i = 0; i < 10; i++) {
+                var selector_string_10 = "#flip_10_round_" + (i + 1);
+                var selector_string_1000 = "#flip_1000_round_" + (i + 1);
+                var selector_string_10000 = "#flip_10000_round_" + (i + 1);
+                pay_off_summary.flip_10 = pay_off_summary.flip_10 + repeat_simulations[i].flip_10.overall_pay;
+                pay_off_summary.flip_1000 = pay_off_summary.flip_1000 + repeat_simulations[i].flip_1000.overall_pay
+                pay_off_summary.flip_10000 = pay_off_summary.flip_10000 + repeat_simulations[i].flip_10000.overall_pay
+
+                $(selector_string_10 + "_td").removeClass();
+                $(selector_string_10).text(repeat_simulations[i].flip_10.overall_pay.toFixed(2));
+                if (repeat_simulations[i].flip_10.overall_pay < 0) {
+                    //unfair game
+                    $(selector_string_10+ "_td").addClass("bg-danger");
+                } else if (repeat_simulations[i].flip_10.overall_pay > 0) {
+                    //Winning game
+                    $(selector_string_10+ "_td").addClass("bg-success");
+                } else {
+                    //Fair Game
+                    $(selector_string_10+ "_td").addClass("bg-warning");
+                }
+
+                $(selector_string_1000+ "_td").removeClass();
+                $(selector_string_1000).text(repeat_simulations[i].flip_1000.overall_pay.toFixed(2));
+                if (repeat_simulations[i].flip_1000.overall_pay < 0) {
+                    //unfair game
+                    $(selector_string_1000+ "_td").addClass("bg-danger");
+                } else if (repeat_simulations[i].flip_1000.overall_pay > 0) {
+                    //Winning game
+                    $(selector_string_1000+ "_td").addClass("bg-success");
+                } else {
+                    //Fair Game
+                    $(selector_string_1000+ "_td").addClass("bg-warning");
+                }
+
+                $(selector_string_10000+ "_td").removeClass();
+                $(selector_string_10000).text(repeat_simulations[i].flip_10000.overall_pay.toFixed(2));
+                if (repeat_simulations[i].flip_10000.overall_pay < 0) {
+                    //unfair game
+                    $(selector_string_10000+ "_td").addClass("bg-danger");
+                } else if (repeat_simulations[i].flip_10000.overall_pay > 0) {
+                    //Winning game
+                    $(selector_string_10000+ "_td").addClass("bg-success");
+                } else {
+                    //Fair Game
+                    $(selector_string_10000+ "_td").addClass("bg-warning");
+                }
+            }
+
+            $("#repated_play_10_td").removeClass();
+            
+            $("#repated_play_10").html(pay_off_summary.flip_10.toFixed(2));
+            if (pay_off_summary.flip_10 < 0) {
+                //unfair game
+                $("#repated_play_10_td").addClass("bg-danger");
+            } else if (pay_off_summary.flip_10 > 0) {
+                //Winning game
+                $("#repated_play_10_td").addClass("bg-success");
+            } else {
+                //Fair Game
+                $("#repated_play_10_td").addClass("bg-warning");
+            }
+
+            $("#repated_play_1000_td").removeClass();
+            $("#repated_play_1000").html(pay_off_summary.flip_1000.toFixed(2));
+            if (pay_off_summary.flip_1000 < 0) {
+                //unfair game
+                $("#repated_play_1000_td").addClass("bg-danger");
+            } else if (pay_off_summary.flip_1000 > 0) {
+                //Winning game
+                $("#repated_play_1000_td").addClass("bg-success");
+            } else {
+                //Fair Game
+                $("#repated_play_1000_td").addClass("bg-warning");
+            }
+
+            $("#repated_play_10000_td").removeClass();
+            $("#repated_play_10000").html(pay_off_summary.flip_10000.toFixed(2));
+            if (pay_off_summary.flip_10000 < 0) {
+                //unfair game
+                $("#repated_play_10000_td").addClass("bg-danger");
+            } else if (pay_off_summary.flip_10000 > 0) {
+                //Winning game
+                $("#repated_play_10000_td").addClass("bg-success");
+            } else {
+                //Fair Game
+                $("#repated_play_10000_td").addClass("bg-warning");
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
