@@ -4,12 +4,13 @@ Django template project
 
 - Clone this repository and install dependencies
 
-    ```commandline
+    ```command
     git clone https://github.com/iotfan90/django_template.git
     python3 -m pip install -r requirements.txt     
   ```
 - Create DB
-    ```commandline
+
+    ```command
     python3 manage.py makemigrations
     python3 manage.py migrate
     python3 manage.py createsuperuser
@@ -17,6 +18,6 @@ Django template project
 
 - Run
 
-    ```commandline
+    ```command
     python3 manage.py runserver
     ```    

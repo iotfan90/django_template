@@ -7,7 +7,7 @@
 <div id="header" class="header navbar-default">
     <!-- begin navbar-header -->
     <div class="navbar-header">
-        <a href="home.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Gambling Shrink</b></a>
+        <a href="{% url 'home' %}" class="navbar-brand"><span class="navbar-logo"></span> <b>Gambling Shrink</b></a>
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -21,13 +21,13 @@
         <li class="dropdown navbar-user">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="{% static 'img/user/user-13.jpg' %}" alt="" />
-                <span class="d-none d-md-inline">Fadi A</span> <b class="caret"></b>
+                <span class="d-none d-md-inline">{{ user.first_name }} {{ user.last_name }}</span> <b class="caret"></b>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="javascript:;" class="dropdown-item">Edit Profile</a>
                 <a href="javascript:;" class="dropdown-item">Settings</a>
                 <div class="dropdown-divider"></div>
-                <a href="javascript:;" class="dropdown-item">Log Out</a>
+                <a href="{% url 'logout' %}" class="dropdown-item">Log Out</a>
             </div>
         </li>
     </ul>

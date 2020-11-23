@@ -12,19 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from datetime import timedelta
-from dotenv import load_dotenv
-
-load_dotenv()
-
-
-def get_env(variable_name):
-    value = os.getenv(variable_name)
-
-    if value is None:
-        raise ValueError(f"{variable_name} is not presented in environment variables. Check your .env file")
-    if str(value).lower() in ("true", "false"):
-        return str(value).lower() == "true"
-    return value
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -142,73 +129,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# SITE_ID = 1
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 STATICFILES_DIRS = [
   os.path.join(BASE_DIR, 'static'),
   # os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
 
-# Rest Framework
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-}
-
 AUTH_USER_MODEL = 'api.User'
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': False,
-    'BLACKLIST_AFTER_ROTATION': True,
-
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
-    'VERIFYING_KEY': None,
-
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
-
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
-    'TOKEN_TYPE_CLAIM': 'token_type',
-
-    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    'SLIDING_TOKEN_LIFETIME': timedelta(hours=1),
-    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
-}
-
-# Your mailtrap smtp info here
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '2192b2b3776f2e'
-EMAIL_HOST_PASSWORD = '30c4620b8ff73a'
-EMAIL_PORT = '2525'
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'citybest128@gmail.com'
-# EMAIL_HOST_PASSWORD = 'Punjab@484'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = get_env('DEFAULT_FROM_EMAIL')
-
-TWILIO_PHONE = get_env('TWILIO_PHONE')
-TWILIO_ACCOUNT_SID = get_env('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = get_env('TWILIO_AUTH_TOKEN')
