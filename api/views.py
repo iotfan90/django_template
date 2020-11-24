@@ -51,18 +51,23 @@ def login_user(request):
 
 
 def home(request):
-    user = request.user
-    context = {
-        "user": user
-    }
-    return render(request, 'home.html', context)
+    if request.user.is_authenticated:
+        user = request.user
+        context = {
+            "user": user
+        }
+        return render(request, 'home.html', context)
+    else:
+        return redirect('login')
 
 
 def repeat_play2_outcome(request):
-    user = request.user
-    context = {
-        "user": user
-    }
-
-    return render(request, 'repeat_play_2_outcome.html', context)
+    if request.user.is_authenticated:
+        user = request.user
+        context = {
+            "user": user
+        }
+        return render(request, 'repeat_play_2_outcome.html', context)
+    else:
+        return redirect('login')
 
