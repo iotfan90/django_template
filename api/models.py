@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .managers import UserManager
+from mysite import settings
 
 
 class User(AbstractUser):
@@ -25,3 +26,16 @@ class User(AbstractUser):
 
     class Meta:
         db_table = 'users'
+
+
+class LoggedInUser(models.Model):
+    # User = settings.AUTH_USER_MODEL
+    user = models.OneToOneField(User, related_name='logged_in_user', on_delete=models.CASCADE)
+    # Session keys are 32 characters long
+    session_key = models.CharField(max_length=32, null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        db_table = 'logged_in_user'
