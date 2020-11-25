@@ -100,7 +100,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "gambling-shrink-dev",
+        "NAME": "gambling_shrink_dev",
         "USER": "gambling_shrink",
         "PASSWORD": "nwiJj25P%UbisxT",
         "HOST": "gambling-shrink-dev.cakbgvx8q9gj.ap-southeast-2.rds.amazonaws.com",
