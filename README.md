@@ -5,7 +5,7 @@ Django template project
 - Clone this repository and install dependencies
 
     ```command
-    git clone https://github.com/iotfan90/gambling_shrink.git
+    git clone https://github.com/jswebguru/gambling_shrink.git
     python3 -m pip install -r requirements.txt     
   ```
 - Create DB
